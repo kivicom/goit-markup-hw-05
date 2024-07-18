@@ -633,7 +633,7 @@ footer .subscribe-btn-icon {
   }
   
   .modal-form-field {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
   
   .modal-form-label {
@@ -676,8 +676,8 @@ footer .subscribe-btn-icon {
  
 
   .modal-form-input:hover+.modal-form-icon,
-  .modal-form-input:focus+.modal-form-iconicon {
-      fill: #4d5ae5;
+  .modal-form-input:focus+.modal-form-icon {
+    fill: #4d5ae5;
   }
   
   .modal-form-label:focus-within {
