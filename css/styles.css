@@ -481,6 +481,70 @@ footer .soc-link:hover, .soc-link:focus{
 footer .soc-link-icon {
     fill: #f4f4fd;
 }
+
+footer .subscribe {
+    margin-left: auto;
+}
+footer .subscribe-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+}
+footer .subscribe-form {
+    gap: 24px;
+    display: flex;
+}
+footer .subscribe-input {
+    padding: 8px 16px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    width: 264px;
+    height: 40px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: #fff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+footer .subscribe-input:hover,
+footer .subscribe-input:focus {
+    border: 1px solid #fff;
+}
+footer .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 4px;
+    padding: 8px 24px;
+    width: 165px;
+    height: 40px;
+    background: #4d5ae5;
+}
+footer .btn:hover,
+footer .btn:focus {
+    background-color: var(--ocean);
+}
+footer .subscribe-btn {
+    min-width: 165px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-align: center;
+    fill: #fff;
+}
+footer .subscribe-btn-icon {
+    margin-left: 16px;
+    fill: #fff;
+}
 /* end region */
 
 /* #region Modal window*/
@@ -646,7 +710,7 @@ footer .soc-link-icon {
   }
     
   .modal-form-agreement {
-      margin-bottom: 40px;
+      margin-bottom: 24px;
   }
 
   .modal-form-desc {
@@ -672,8 +736,9 @@ footer .soc-link-icon {
   }
 
   input[type='checkbox']:checked+.modal-form-desc>.modal-form-checkbox {
-      border-color: none;
-      background-color: #404bbf;
+    border: none;
+    fill: #F4F4FD;
+    background-color: #404bbf;
   }
 
   input[type='checkbox']:focus-visible+.modal-form-desc>.modal-form-checkbox {
