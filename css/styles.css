@@ -633,6 +633,10 @@ footer .subscribe-btn-icon {
   }
   
   .modal-form-field {
+    margin-bottom: 8px;
+  }
+
+  .comment{
     margin-bottom: 16px;
   }
   
