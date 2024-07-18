@@ -11,11 +11,22 @@
     --grey: rgba(46, 47, 66, 0.7);
     --white: #fff;
     --dairy: #fcfcfc;
+
+    --font-family: "Roboto", sans-serif;
+    --second-family: "Raleway", sans-serif;
+
+      /* Others */
+    --items: 4;
+    --col-indent: 32px;
+    --row-indent: var(--col-indent);
+
+    --anim-fast: 300ms ease-in-out;
+    --anim-slow: 600ms ease-in-out;
 }
 
 /* #region Base styles */
 body{
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-family);
     font-size: 16px;
     color: var(--slate);
     background-color: var(--white);
@@ -82,8 +93,7 @@ section {
 }
 
 .logo {
-    font-family: "Raleway",
-        sans-serif;
+    font-family: var(--second-family);
     font-size: 18px;
     font-weight: 700;
     line-height: 1.17;
@@ -471,3 +481,230 @@ footer .soc-link:hover, .soc-link:focus{
 footer .soc-link-icon {
     fill: #f4f4fd;
 }
+/* end region */
+
+/* #region Modal window*/
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 24px 24px 24px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+      0 2px 1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fcfcfc;
+    border-radius: 4px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .backdrop:not(.is-open) .modal {
+    transform: translate(-50%, -100%);
+  }
+  
+  .modal-close-btn {
+      border-radius: 50%;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      background-color: #e7e9fc;
+      color: #2e2f42;
+      stroke-width: 1px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 24px;
+      right: 24px;
+      cursor: pointer;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+          border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal-close-btn:hover,
+  .modal-close-btn:focus {
+      background-color: #404bbf;
+      border: none;
+  }
+
+  .modal-close-btn-icon {
+      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal-close-btn:hover .modal-close-btn-icon,
+  .modal-close-btn:focus .modal-close-btn-icon {
+      fill: #fff;
+  }
+  
+  .modal-caption {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #2e2f42;
+    margin-bottom: 16px;
+  }
+  
+  .modal-form-field {
+    margin-bottom: 8px;
+  }
+  
+  .modal-form-label {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .modal-form-wrapper {
+    position: relative;
+  }
+  
+  .modal-form-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    background-color: transparent;
+    padding-left: 38px;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .modal-form-input:hover,
+  .modal-form-input:focus {
+    border: 1px solid #4d5ae5;
+  }
+  
+  .modal-form-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+ 
+
+  .modal-form-input:hover+.modal-form-icon,
+  .modal-form-input:focus+.modal-form-iconicon {
+      fill: #4d5ae5;
+  }
+  
+  .modal-form-label:focus-within {
+    fill: #4d5ae5;
+  }
+  
+  .comment-container {
+    margin-bottom: 16px;
+  }
+  
+  .modal-form-comment {
+    width: 100%;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    height: 120px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+    background-color: transparent;
+    padding: 8px 16px;
+    outline: transparent;
+    resize: none;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .modal-form-comment:focus,
+  .modal-form-commentform:hover {
+    border-color: #4d5ae5;
+  }
+    
+  .modal-form-agreement {
+      margin-bottom: 40px;
+  }
+
+  .modal-form-desc {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+  }
+
+  .modal-form-checkbox {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+  }
+
+  input[type='checkbox']:checked+.modal-form-desc>.modal-form-checkbox {
+      border-color: none;
+      background-color: #404bbf;
+  }
+
+  input[type='checkbox']:focus-visible+.modal-form-desc>.modal-form-checkbox {
+      box-shadow: 0 0 0 3px rrgba(17, 17, 17, 0.25);
+  }
+
+  .modal-form-link {
+    line-height: 1.33333;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #4d5ae5;
+  }
+
+    .btn-accent {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        text-align: center;
+        color: #fff;
+        font-family: var(--font-family);
+        display: block;
+        border-radius: 4px;
+        padding: 16px 32px;
+        min-width: 169px;
+        height: 56px;
+        cursor: pointer;
+        border: none;
+        margin: 0 auto;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+        background: #4d5ae5;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  /* #endregion */
